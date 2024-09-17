@@ -1,3 +1,12 @@
+---
+name: Dashboard
+about: To deploy a dashboard on NeuroLibre
+title: "[NEW DASHBOARD]"
+labels: dashboard
+assignees: ['agahkarakuzu']
+---
+
+
 Please tell us a bit about the dashboard you would like to host on NeuroLibre for publishing it alongside your reproducible preprint. 
 
 - How big is the dataset your dashboard consumes?
