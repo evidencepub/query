@@ -1,6 +1,6 @@
 ---
-name: Dashboard
-about: To deploy a dashboard on NeuroLibre
+name: Deploy a new dashboard
+about: To supplement your reproducible preprint with a full-fledged data visualization
 title: "[NEW DASHBOARD]"
 labels: dashboard
 assignees: ['agahkarakuzu']
