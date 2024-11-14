@@ -30,7 +30,7 @@ jobs:
           script: |
             const commenter = context.payload.comment.user.login;
             const org = "neurolibre";
-            const team_slug = "editors";
+            const team_slug = "authors";
             const { data: members } = await github.rest.teams.listMembersInOrg({
               org,
               team_slug,
