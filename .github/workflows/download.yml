@@ -55,7 +55,15 @@ jobs:
               repo: context.repo.repo,
               body: message
             });
-            
+      
+      - name: Debug Cache Data Variables
+        if: steps.comment-download.outputs.proceed == 'true'
+        run: |
+          echo "Debugging Cache Data Variables:"
+          echo "id: ${{ github.event.issue.number }}"
+          echo "repository_url: ${{ env.repository_url }}"
+          echo "external_repo: ${{ github.repository }}"
+          
       - name: Cache Data
         if: steps.comment-download.outputs.proceed == 'true'
         run: |
@@ -63,7 +71,7 @@ jobs:
             -u "${{ secrets.PREVIEW_API_USERNAME }}:${{ secrets.PREVIEW_API_PASSWORD }}" \
             -H "Content-Type: application/json" \
             -d '{
-              "id": "'${{ github.event.issue.number }}'",
               "repository_url": "'${{ env.repository_url }}'",
+              "id": "'${{ github.event.issue.number }}'",
               "external_repo": "'${{ github.repository }}'"
             }'
