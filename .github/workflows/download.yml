@@ -64,14 +64,14 @@ jobs:
           echo "repository_url: ${{ env.repository_url }}"
           echo "external_repo: ${{ github.repository }}"
           
-      # - name: Cache Data
-      #   if: steps.comment-download.outputs.proceed == 'true'
-      #   run: |
-      #     curl -X POST https://preview.neurolibre.org/api/data/cache \
-      #       -u "${{ secrets.PREVIEW_API_USERNAME }}:${{ secrets.PREVIEW_API_PASSWORD }}" \
-      #       -H "Content-Type: application/json" \
-      #       -d '{
-      #         "repository_url": "'${{ env.repository_url }}'",
-      #         "id": "'${{ github.event.issue.number }}'",
-      #         "external_repo": "'${{ github.repository }}'"
-      #       }'
+      - name: Cache Data
+        if: steps.comment-download.outputs.proceed == 'true'
+        run: |
+          curl -X POST https://preview.neurolibre.org/api/data/cache \
+            -u "${{ secrets.PREVIEW_API_USERNAME }}:${{ secrets.PREVIEW_API_PASSWORD }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "repository_url": "'${{ env.repository_url }}'",
+              "id": "'${{ github.event.issue.number }}'",
+              "external_repo": "'${{ github.repository }}'"
+            }'
