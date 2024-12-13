@@ -39,6 +39,7 @@ jobs:
             core.setOutput("authorized", isAuthorized);
 
       - name: Comment with Download Message
+        id: comment-download
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.DATA_TOKEN }}
