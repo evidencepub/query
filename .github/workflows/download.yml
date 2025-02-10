@@ -72,6 +72,6 @@ jobs:
             -H "Content-Type: application/json" \
             -d '{
               "repository_url": "'${{ env.repository_url }}'",
-              "id": "'${{ github.event.issue.number }}'",
+              "id": ${{ github.event.issue.number }},
               "external_repo": "'${{ github.repository }}'"
             }'
