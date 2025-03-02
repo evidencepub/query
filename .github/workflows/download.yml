@@ -47,7 +47,7 @@ jobs:
             const repoUrl = process.env.repository_url;
             const repoOwner = repoUrl.replace('https://github.com/', '');
             const isAuthorized = "${{ steps.check-authorization.outputs.authorized }}" === "true";
-            const message = isAuthorized ? `Pinging roboneuro to download the data for ${repoOwner}` : "You are not authorized to perform this action.";
+            const message = isAuthorized ? `✍️ Authorized request. Moving on to download ${repoOwner}` : "⛔️ You are not authorized to perform this action.";
             core.setOutput("proceed", isAuthorized);
             await github.rest.issues.createComment({
               issue_number: context.issue.number,
